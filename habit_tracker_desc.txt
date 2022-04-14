@@ -1,0 +1,36 @@
+Habit Tracker 
+
+home:
+Nav bar with "Home", "Logout", and "Habits We Track" buttons 
+Section detailing "Why Habit Tracker"
+Registration and Login sections for users 
+
+
+Profile: 
+Navbar with "Home", "Logout", "Profile", and "Habits We Track" buttons 
+User info (photo, name, goals) on far left 
+Habit Types, Days Consistent, and Goal Tracker in profile 
+Message box to send and receive messages from other users
+
+Add Page:
+Navbar with "Home", "Logout", "Profile", and "Habits We Track" buttons 
+Display greeting User 
+Create Habit (habit, goal, habit type, start date, frequency)
+Submit button that adds new habit to "Habits Being Tracked" section 
+"Habit being tracked" that displays habits added and gives users the ability to edit and delete each
+Motivational img 
+
+Edit Page:
+Navbar with "Home", "Logout", "Profile", and "Habits We Track" buttons 
+Display greeting User 
+Edit Habit (habit, goal, habit type, start date, frequency)
+Submit button that adds new habit to "New Habit" section 
+"New Habit" that displays habits added and gives users the ability to edit and delete each
+Motivational img 
+
+Habits We Track:
+Navbar with "Home", "Logout", "Profile", and "Habits We Track" buttons 
+Sections elaborating on how each "Habit We Track" is tracked and why 
+Motivational img on bottom of page 
+
+https://github.com/AbdulConteh/Projects.git
