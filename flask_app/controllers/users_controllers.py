@@ -8,3 +8,7 @@ def index():
 @app.route('/profile')
 def profile():
     return render_template('/profile.html')
+
+@app.route('/user_register', method=['POST'])
+def registration():
+    pass

@@ -1,5 +1,4 @@
 import re
-from unittest import result
 from flask import flash
 from flask_app import app 
 from flask_app.config.mysqlconnection import connectToMySQL
@@ -15,9 +14,11 @@ class User:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
-    def create(cls, data):
+    def create_user(cls, data):
         query = """
-        INSERT INTO user ( "first_name", "last_name", "email", "password")
-        VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(password)s,)
+        INSERT INTO users ( "first_name", "last_name", "email", "password")
+        VALUES ( %(first_name)s, %(last_name)s, %(email)s, %(password)s)
         """
         result = connectToMySQL(db).query_db(query, data)
+        return result 
+
