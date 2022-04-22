@@ -1,9 +1,10 @@
 from flask_app import app
+from flask_app.models.habits_models import Habit
 from flask import render_template, redirect, session , flash
 
 @app.route('/add_habit')
 def add():
-    return render_template('/add_habit.html')
+    return render_template('/add_habit.html', show = Habit.show_habit)
 
 @app.route('/edit_habit')
 def edit():

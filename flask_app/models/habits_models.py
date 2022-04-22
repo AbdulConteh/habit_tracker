@@ -22,3 +22,8 @@ class Habit:
         """
         results = connectToMySQL(db).query_db(query, data)
         return results 
+
+    def show_habit(self, data):
+        query = "SELECT * FROM habits"
+        results = connectToMySQL(db).query_db(query, data)
+        return results
