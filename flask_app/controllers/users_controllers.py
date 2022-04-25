@@ -24,6 +24,6 @@ def create():
         "confirm_password" : request.form["confirm_password"]
     }
     print(data['password'])
-    id = User.create_user('data')
+    id = User.create_user(data)
     session['users_id'] = id
     return redirect ('/')
