@@ -5,11 +5,12 @@ from flask import render_template, request, redirect, session , flash
 @app.route('/create_habit', methods=['POST'])
 def createHabit():
     data = {
-        "habit" : request.form['habit'],
+        "habit_name" : request.form['habit_name'],
         "goal" : request.form['goal'],
         "habit_type" : request.form['habit_type'],
         "start_date" : request.form['start_date'],
-        "frequency" : request.form['frequency']
+        "frequency" : request.form['frequency'], 
+        "user_id" : session['user_id']
     }
     Habit.create_habit(data)
     return redirect('/add_habit')
@@ -24,6 +25,5 @@ def info():
 
 @app.route('/add_habit')
 def addHabit():
-    show = Habit.show_habit)
-
-    return render_template('/add_habit.html', 
+    show_habits = Habit.show_all_habits()
+    return render_template('/add_habit.html', show_habits = show_habits)
