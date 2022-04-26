@@ -15,15 +15,17 @@ class Habit:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
-    def create_habit(self, data):
+    @classmethod
+    def create_habit(cls, data):
         query = """
-        INSERT INTO habits ( 'habit_name', 'goal', 'habit_type', 'start_date', 'frequency', 'user_id')
+        INSERT INTO habits ( habit_name, goal, habit_type, start_date, frequency, user_id)
         VALUES(%(habit_name)s, %(goal)s, %(habit_type)s, %(start_date)s, %(frequency)s, %(user_id)s);
         """
         results = connectToMySQL(db).query_db(query, data)
         return results 
 
-    def show_habit(self, data):
+    @classmethod
+    def show_all_habits(cls):
         query = "SELECT * FROM habits"
-        results = connectToMySQL(db).query_db(query, data)
+        results = connectToMySQL(db).query_db(query)
         return results
