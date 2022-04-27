@@ -14,18 +14,31 @@
             padding: 10px;
             width: 1200px;
     }
+    .habit_list {
+        margin-left: 1000px;
+        display: flex;
+        border: 3px solid black;
+        width: 190px;
+        flex-direction: column;
+        flex-wrap: wrap;
+        align-items: center;
+        background-color: darkgray;
+        font-size: 20px;
+        padding: 10px;
+    }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="navbar">
-            <button><a href="/">Home</a> </button>
+            <a href="/">Home</a> 
             <button><a href="/profile">Profile</a> </button>
             <button><a href='/info'>Habits We track</a> </button>
             <button><a href='/logout'>Logout</a> </button>
         </div>
         <br>
-        <div class="habit_info">
+        <div class="header">
+            <h3> Hello, {user.first_name}</h3>
         <p></p>
         </div>
         <br>
@@ -61,13 +74,15 @@
         <br>
         <img>
         <br>
-        {% for habit in show_habits %}
         <div class="habit_list">
             <h3> Habit List </h3>
-            <p>{{habit.habit_name}}</p>
-            <a href="/edit_habit"> Edit </a> | <a href="/delete/{{habit.id}}"> Delete </a> 
+            {% for habit in show_habits %}
+            <div >
+                <p>{{habit.goal}}</p>
+                <a href="/edit_habit/{{habit.id}}"> Edit </a> | <a href="/delete/{{habit.id}}"> Delete </a> 
+            </div>
+            {% endfor %}
         </div>
-        {% endfor %}
     </div>
 </body>
 </html>

@@ -16,13 +16,21 @@ def createHabit():
     Habit.create_habit(data)
     return redirect('/add_habit')
 
-@app.route('/edit_habit')
-def edit():
+@app.route('/update_habit', methods=['POST'])
+def update_habit():
+    Habit.edit_habit(request.form)
+    return redirect('/add_habit')
+
+@app.route('/edit_habit/<int:id>')
+def edit(id):
     if 'user_id' not in session:
         return redirect('/')
+    data = {
+        "id" : id
+    }
     user = User.get_all()
-    habit = Habit.get_one_habit
-    return render_template('/edit_habit.html', user= user, habit = habit)
+    habit = Habit.get_user_habit(data)
+    return render_template('/edit_habit.html', user = user, habit = habit)
 
 @app.route('/info')
 def info():
