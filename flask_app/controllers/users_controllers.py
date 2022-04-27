@@ -12,7 +12,10 @@ def index():
 
 @app.route('/profile')
 def profile():
-    return render_template('/profile.html')
+    if 'user_id' not in session:
+        return redirect('/')
+    user = User.get_all
+    return render_template('/profile.html', user = user)
 
 @app.route("/user_register", methods=['POST'])
 def create():
@@ -22,8 +25,7 @@ def create():
         "first_name" : request.form["first_name"],
         "last_name" : request.form["last_name"],
         "email" : request.form["email"],
-        "password" : bcrypt.generate_password_hash(request.form['password']),
-        "confirm_password" : request.form["confirm_password"]
+        "password" : bcrypt.generate_password_hash(request.form['password'])
     }
     print(data['password'])
     id = User.create_user(data)
@@ -35,7 +37,12 @@ def login():
     data = {
         "email" : request.form["email"]
     }
-    return redirect ('/info_page')
+    user = User.get_account(data)
+    if not user:
+        flash("Unregistered email. Please try again", "login")
+        return redirect('/')
+    session['user_id'] = user.id
+    return redirect ('/profile')
 
 @app.route('/logout')
 def logout():

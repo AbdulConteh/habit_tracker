@@ -25,7 +25,30 @@ class Habit:
         return results 
 
     @classmethod
+    def edit_habit(cls, data):
+        query = """
+        UPDATE habits SET habit_name= %(habit_name)s, goal=%(goal)s, habit_type=%(habit_type)s,start_date=%(start_date)s
+        ,frequency=%(frequency)s, updated_at=NOW()
+        WHERE id = %(id)s;
+        """
+        results = connectToMySQL(db).query_db(query, data)
+        return results 
+
+    @classmethod
     def show_all_habits(cls):
         query = "SELECT * FROM habits"
         results = connectToMySQL(db).query_db(query)
         return results
+
+    @classmethod
+    def get_one_habit(cls, data):
+        query = ' SELECT * FROM habits WHERE id = %(id)s'
+        results = connectToMySQL(db).query_db(query, data)
+        return cls (results[0])
+
+
+    @classmethod
+    def delete(cls, data):
+        query = " DELETE * FROM habits WHERE id = %(id)s;"
+        result = connectToMySQL(db).query_db(query, data)
+        return result

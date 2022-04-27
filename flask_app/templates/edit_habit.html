@@ -14,6 +14,12 @@
             padding: 10px;
             width: 1200px;
     }
+    .header {
+        border: 5px solid black;
+        background-color: red;
+        width: 300px;
+        height: 150px;
+    }
     </style>
 </head>
 <body>
@@ -26,27 +32,27 @@
         </div>
         <br>
         <div class="header">
-        <h3>Hello, ! Edit habits!</h3>
+        <h3>Hello, {{user.first_name}} ! Edit {{habit.habit_name}}!</h3>
         </div>
         <br>
         <form action="" method="post">
-            <div class="div">
+            <div class="form-group">
                 <label for="habit"> Habit: </label>
                 <input type="text" name="habit" id="habit">
             </div>
-            <div class="div">
+            <div class="form-group">
                 <label for="goal"> Goal: </label>
                 <input type="text" name="goal" id="goal">
             </div>
-            <div class="div">
+            <div class="form-group">
                 <label for="type"> Type: </label>
                 <input type="text" name="type" id="type">
             </div>
-            <div class="div">
+            <div class="form-group">
                 <label for="start_date"> Start Date: </label>
                 <input type="date" name="start_date" id="start_date">
             </div>
-            <div class="div">
+            <div class="form-group">
                 <label for="frequency"> Frequency: </label>
                 <input type="text" name="frequency" id="frequency">
                 <input type="submit" value="Apply Changes!">
@@ -54,9 +60,9 @@
         </form>
         <br>
         <img>
-        <div class="new_habits">
+        <div class="new_habits"></div>
             <h3> New habit </h3>
-            <a> Add </a> | <a> Delete </a>
+            <a href="/add_habit"> Add </a> | <a href=> Delete </a>
         </div>
     </div>
 </body>

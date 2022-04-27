@@ -65,7 +65,7 @@
         <div class="habit_list">
             <h3> Habit List </h3>
             <p>{{habit.habit_name}}</p>
-            <a> Edit </a> | <a> Delete </a> 
+            <a href="/edit_habit"> Edit </a> | <a href="/delete/{{habit.id}}"> Delete </a> 
         </div>
         {% endfor %}
     </div>
