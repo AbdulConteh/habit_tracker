@@ -13,25 +13,39 @@
             margin: 5px;
             padding: 10px;
             width: 1200px;
-    }
-    .habit_list {
-        margin-left: 1000px;
-        display: flex;
-        border: 3px solid black;
-        width: 190px;
-        flex-direction: column;
-        flex-wrap: wrap;
-        align-items: center;
-        background-color: darkgray;
-        font-size: 20px;
-        padding: 10px;
-    }
+            height: 75px;
+        }
+        .habit_list {
+            margin-left: 750px;
+            display: flex;
+            border: 3px solid black;
+            width: 417px;
+            align-items: flex-start;
+            flex-direction: column;
+            background-color: darkgray;
+            font-size: 20px;
+            padding: 15px;
+            height: 300px;
+            margin-top: -300px;
+        }
+        .form-group {
+            display: flex;
+            font-size: 22px;
+            flex-direction: column;
+            width: 414px;
+            align-items: flex-start;
+        }
+        button {
+            width: 140px;
+            border-radius: 15%;
+            height: 40px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="navbar">
-            <a href="/">Home</a> 
+            <button><a href="/">Home</a> </button>
             <button><a href="/profile">Profile</a> </button>
             <button><a href='/info'>Habits We track</a> </button>
             <button><a href='/logout'>Logout</a> </button>
@@ -42,7 +56,7 @@
         <p></p>
         </div>
         <br>
-        <form action="/create_habit" method="post">
+        <form action="/create_habit" method="post" class="add_habit">
             <div class="form-group">
                 <label for="habit_name"> Habit: </label>
                 <input type="text" name="habit_name" id="habit_name">

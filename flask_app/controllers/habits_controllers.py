@@ -36,7 +36,8 @@ def edit(id):
 def info():
     if 'user_id' not in session:
         return redirect('/')
-    return render_template('/info_page.html')
+    user = User.get_all()
+    return render_template('/info_page.html', user = user)
 
 @app.route('/add_habit')
 def addHabit():

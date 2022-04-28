@@ -13,7 +13,36 @@
             margin: 5px;
             padding: 10px;
             width: 1200px;
-    }
+            height: 75px;
+            display: flex;
+            justify-content: space-evenly;
+        }
+        .infotab {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            height: 200px;
+            justify-content: center;
+            background-color: darkgrey;
+        }
+        .register {
+            display: flex;
+            flex-direction: column;
+            width: 290px;
+            margin-left: 150px;
+        }
+        .login {
+            display: flex;
+            flex-direction: column;
+            width: 290px;
+            margin-left: 800px;
+            margin-top: -431px;
+        }
+        button {
+            width: 150px;
+            border-radius: 15%;
+            height: 40px;
+        }
     </style>
 </head>
 <body>
@@ -26,6 +55,7 @@
         <div class="infotab">
             <h3> Why Habit Tracker</h3>
             <p> 
+                qwertyuioplkjhgfdsazxcvbnmnbvcxzasdfghjklpoiuytrewq
             </p>
         </div>
         <br>
@@ -36,7 +66,7 @@
             {% endfor %}
         {% endif %}
         {% endwith %}
-        <form action="/user_register" method="post" class="col md-4">
+        <form action="/user_register" method="post" class="register">
             <h2> Register </h2>
             <div class="form-group">
                 <label for="first_name"> First Name: </label>
@@ -58,9 +88,10 @@
                 <label for="comfirm_password"> Confirm Password: </label>
                 <input type="password" class="form-control" name="confirm_password" id="confirm_password" rows="3"></input>
             </div>
+            <br>
             <input type="submit" value="Register">
         </form>
-        <form action="/login" method="post" class="col-md-6">
+        <form action="/login" method="post" class="login">
             {% with messages = get_flashed_messages(category_filter=['login']) %} 
             {% if messages %}                           
                 {% for message in messages %}           
@@ -77,6 +108,7 @@
                 <label for="password"> Password: </label>
                 <input type="password" class="form-control" name="password" id="password" rows="3"></input>
             </div>
+            <br>
             <input type="submit" value="Login">
         </form>
     </div>

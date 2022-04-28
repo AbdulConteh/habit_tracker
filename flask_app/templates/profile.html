@@ -12,8 +12,52 @@
             background-color: black;
             margin: 5px;
             padding: 10px;
-            width: 1200px;
-    }
+            width: 1258px;
+            height: 75px;
+        }
+        .user_info{
+            background-color: oldlace;
+            border: 3px black solid;
+            display: flex;
+            width: 230px;
+            height: 350px;
+            flex-direction: column;
+            align-items: center;
+            padding: 10px;
+        }
+        .profile_dashboard {
+            display: flex;
+            border: black 3px solid;
+            height: 415px;
+            width: 705px;
+            margin-left: 258px;
+            justify-content: space-around;
+            flex-direction: row;
+            margin-top: -323px;
+            padding: 15px;
+        }
+        .dash_colm {
+            border: black solid 3px;
+            background-color: lightgrey;
+            padding: 5px;
+            width: 180px;
+        }
+        .message_box {
+            border: 5px solid black;
+            width: 267px;
+            margin-left: 981px;
+            height: 338px;
+            margin-top: -426px;
+            padding: 10px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        button {
+            width: 140px;
+            border-radius: 15%;
+            height: 40px;
+        }
     </style>
 </head>
 <body>
@@ -26,8 +70,10 @@
         </div>
         <br>
         <div class="user_info">
-            <p>Hello, {{user.first_name}} !</p>
-            <p></p>
+            <h3>Hello, {{user.first_name}} !</h3>
+            <br>
+            <h3> Goals </h3>
+            <p>qwertyuiopasdfghjklzxcvbnm,</p>
         </div>
         <br>
         <div class="profile_dashboard">
@@ -45,6 +91,7 @@
             </div>
         </div>
         <div class="message_box">
+            <h3> Message Box </h3>
             <p></p>
             <p></p>
         </div>
