@@ -26,16 +26,14 @@ def edit(id):
     if 'user_id' not in session:
         return redirect('/')
     data = {
-        "id" : id
+        "id" : session["user_id"]
     }
-    user = User.get_all()
+    user = User.get_user(data)
     habit = Habit.get_user_habit(data)
     return render_template('/edit_habit.html', user = user, habit = habit)
 
 @app.route('/info')
 def info():
-    if 'user_id' not in session:
-        return redirect('/')
     user = User.get_all()
     return render_template('/info_page.html', user = user)
 
@@ -44,7 +42,11 @@ def addHabit():
     if 'user_id' not in session:
         return redirect('/')
     show_habits = Habit.show_all_habits()
-    return render_template('/add_habit.html', show_habits = show_habits)
+    data = {
+        "id" : session["user_id"]
+    }
+    user = User.get_user(data)
+    return render_template('/add_habit.html', show_habits = show_habits, user = user)
 
 @app.route('/delete/<int:id>')
 def delete(id):

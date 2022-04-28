@@ -41,6 +41,14 @@ class User:
             return False
         return User(results[0])
 
+    @classmethod
+    def get_user(cls, data):
+        query = " SELECT * FROM users WHERE id = %(id)s;"
+        results = connectToMySQL(db).query_db(query, data)
+        if len(results) < 1:
+            return False
+        return cls(results[0])
+
     @staticmethod
     def validate_users(User):
         specialSym = ["$", "/", "@", "%"]

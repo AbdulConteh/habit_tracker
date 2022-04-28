@@ -14,7 +14,10 @@ def index():
 def profile():
     if 'user_id' not in session:
         return redirect('/')
-    user = User.get_all
+    data = {
+        "id" : session["user_id"]
+    }
+    user = User.get_user(data)
     return render_template('/profile.html', user = user)
 
 @app.route("/user_register", methods=['POST'])
@@ -40,6 +43,9 @@ def login():
     user = User.get_account(data)
     if not user:
         flash("Unregistered email. Please try again", "login")
+        return redirect('/')
+    if not bcrypt.check_password_hash(user.password, request.form['password']):
+        flash("Invalid password.", "login")
         return redirect('/')
     session['user_id'] = user.id
     return redirect ('/profile')
