@@ -54,10 +54,10 @@ class User:
         specialSym = ["$", "/", "@", "%"]
         is_valid = True
         if len(User['first_name']) < 3:
-            flash('Name must be at least 3 characters. Please try again!', 'register')
+            flash('First name must be at least 3 characters. Please try again!', 'register')
             is_valid = False
         if len(User['last_name']) < 3:
-            flash('Name must be at least 3 characters. Please try again!', 'register')
+            flash('Last name must be at least 3 characters. Please try again!', 'register')
             is_valid = False
         if not EMAIL_REGEX.match(User['email']):
             flash('Email must not be registered. Please try again!', 'register')
