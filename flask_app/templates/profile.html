@@ -8,6 +8,10 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Profile</title>
     <style>
+        button {
+            background-color: cyan;
+            
+        }
         .navbar {
             background-color: black;
             margin: 5px;
@@ -15,12 +19,12 @@
             width: 1258px;
             height: 75px;
         }
-        .user_info{
+        .user_info_box{
             background-color: oldlace;
             border: 3px black solid;
             display: flex;
             width: 230px;
-            height: 350px;
+            height: max-content;
             flex-direction: column;
             align-items: center;
             padding: 10px;
@@ -47,7 +51,7 @@
             width: 267px;
             margin-left: 981px;
             height: 338px;
-            margin-top: -426px;
+            margin-top: -632px;
             padding: 10px;
             display: flex;
             flex-direction: column;
@@ -57,6 +61,10 @@
             width: 140px;
             border-radius: 15%;
             height: 40px;
+        }
+        p{
+            height: max-content;
+            width: 150px;
         }
     </style>
 </head>
@@ -69,21 +77,23 @@
             <button><a href='/logout'>Logout</a> </button>
         </div>
         <br>
-        <div class="user_info">
+        
+        <div class="user_info_box">
             <h3>Hello, {{user.first_name}} !</h3>
+            <a href="/add_habit">Add Habit</a>
             <br>
             <h3> Goals </h3>
-            <p>qwertyuiopasdfghjklzxcvbnm,</p>
+            {% for habit in habits %}
+                <p>{{habit.goal}}</p>
+            {% endfor %}
         </div>
         <br>
         <div class="profile_dashboard">
             <div class="dash_colm">
                 <h3>Habit Types</h3>
-                <p></p>
-            </div>
-            <div class="dash_colm">
-                <h3>Days Consistent</h3>
-                <p></p>
+                {% for habit in habits %}
+                <p>{{habit.habit_type}}</p>
+                {% endfor %}
             </div>
             <div class="dash_colm">
                 <h3>Distance To Goal</h3>
@@ -92,8 +102,25 @@
         </div>
         <div class="message_box">
             <h3> Message Box </h3>
-            <p></p>
-            <p></p>
+            <br>
+            <form action="/send/message" method="post">
+                {#{% for u in users %}#}
+                    {#{% if u.id != session.user_id %}#}
+                    <div class="form-control">
+                        <input type="hidden" name="sender_id" value={#{{session.user_id}}#}>
+                        <input type="hidden" name="receiver_id" value={#{{u.id}}#}>
+                        <label for="receiver_id"> Send Message:</label>
+                        <textarea name="content" id=""></textarea>
+                        <input type="submit" value="Send">
+                    </div>
+                    {#{% endif %}#}
+                {#{% endfor %}#}
+            </form>
+            <br>
+            <div class="form-control">
+                <label for="receiver_id"> View {{message|length}} Message(s): </label>
+                <input type="content" name="content" id="content">
+            </div>
         </div>
     </div>
 </body>

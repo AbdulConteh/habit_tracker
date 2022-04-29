@@ -17,8 +17,11 @@ def profile():
     data = {
         "id" : session["user_id"]
     }
+    # print(data)
     user = User.get_user(data)
-    return render_template('/profile.html', user = user)
+    habits = Habit.get_user_habits(data)
+    # print("**********habit", habits)
+    return render_template('/profile.html', user = user, habits = habits)
 
 @app.route("/user_register", methods=['POST'])
 def create():

@@ -8,6 +8,13 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Login&Reg</title>
     <style>
+        .container {
+            background-color: silver;
+            color: whitesmoke;
+            height: 910px;
+            width: max-content;
+            border: grey solid 14px;
+        }
         .navbar {
             background-color: black;
             margin: 5px;
@@ -44,10 +51,13 @@
             border-radius: 15%;
             height: 40px;
         }
+        p {
+            width:600px;
+        }
     </style>
 </head>
 <body>
-    <div class="container">
+    <div class="container"> 
         <div class="navbar">
             <button><a href="/">Home</a></button>
             <button><a href="/info">Habits We Track</a></button>
@@ -56,7 +66,10 @@
         <div class="infotab">
             <h3> Why Habit Tracker</h3>
             <p> 
-                qwertyuioplkjhgfdsazxcvbnmnbvcxzasdfghjklpoiuytrewq
+                Simply put, people need a way to track and organized. Looking to 
+                grow and better ourselves is already hard enough when you take into
+                account how distracting life can get. So, here you'll be able to create 
+                different habits that you're looking to implement ...
             </p>
         </div>
         <br>
@@ -67,7 +80,7 @@
             {% endfor %}
         {% endif %}
         {% endwith %}
-        <form action="/user_register" method="post" class="register">
+        <form action="/user_register" method="post" class="register" bg.secondary>
             <h2> Register </h2>
             <div class="form-group">
                 <label for="first_name"> First Name: </label>

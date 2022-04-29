@@ -29,7 +29,15 @@ def edit(id):
         "id" : session["user_id"]
     }
     user = User.get_user(data)
-    habit = Habit.get_user_habit(data)
+    habits = Habit.get_user_habits(data)
+    print("**********", habits)
+    for x in habits:
+        print("**********habit.id", x.id)
+        print("**********id", id)
+        print("**********", x.habit_name)
+        if x.id == id:
+            habit = x
+            print("**********habit", habit)
     return render_template('/edit_habit.html', user = user, habit = habit)
 
 @app.route('/info')

@@ -36,15 +36,19 @@ class Habit:
 
     @classmethod
     def show_all_habits(cls):
-        query = "SELECT * FROM habits "
+        query = "SELECT * FROM habits; "
         results = connectToMySQL(db).query_db(query)
         return results
 
     @classmethod
-    def get_user_habit(cls, data):
-        query = " SELECT * FROM habits WHERE id = %(id)s"
+    def get_user_habits(cls, data):
+        query ="SELECT * FROM habits WHERE user_id = %(id)s;"
         results = connectToMySQL(db).query_db(query, data)
-        return cls (results[0])
+        print(results)
+        show_habit = []
+        for habit in results:
+            show_habit.append(cls(habit))
+        return show_habit
 
 
     @classmethod
