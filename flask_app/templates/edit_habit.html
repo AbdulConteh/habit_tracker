@@ -32,13 +32,14 @@
             width: 140px;
             border-radius: 15%;
             height: 40px;
+            background-color: cyan;
         }
+        
     </style>
 </head>
 <body>
     <div class="container">
         <div class="navbar">
-            <button><a href="/">Home</a> </button>
             <button><a href="/profile">Profile</a> </button>
             <button><a href='/info'>Habits We track</a> </button>
             <button><a href='/logout'>Logout</a> </button>
@@ -48,19 +49,19 @@
         <h3>Hello, {{user.first_name}} ! Edit {{habit.habit_name}}!</h3>
         </div>
         <br>
-        <form action="/update_habit" method="post">
+        <form action="/update_habit/{{habit.id}}" method="post">
             <div class="form-group">
                 <label for="habit_name"> Habit: </label>
-                <input type="text" name="habit_name" id="habit_name">
+                <input type="text" name="habit_name" id="habit_name" value="{{habit.habit_name}}">
             </div>
             <div class="form-group">
                 <label for="goal"> Goal: </label>
-                <input type="text" name="goal" id="goal">
+                <input type="text" name="goal" id="goal" value="{{habit.goal}}">
             </div>
             <div class="form-group">
                 <label for="habit_type"> Habit Type: </label>
                 <select id="habit_type" name="habit_type">
-                    <option value=""></option>
+                    <option value="{{habit.habit_type}}">{{habit.habit_type}}</option>
                     <option value="financial">Financial</option>
                     <option value="mental">Mental</option>
                     <option value="physical">Physical</option>
@@ -69,11 +70,11 @@
             </div>
             <div class="form-group">
                 <label for="start_date"> Start Date: </label>
-                <input type="date" name="start_date" id="start_date">
+                <input type="date" name="start_date" id="start_date" value="{{habit.start_date}}">
             </div>
             <div class="form-group">
                 <label for="frequency"> Frequency: </label>
-                <input type="text" name="frequency" id="frequency">
+                <input type="text" name="frequency" id="frequency" value="{{habit.frequency}}">
                 <input type="submit" value="Apply Changes!">
             </div>
         </form>

@@ -24,34 +24,38 @@
             border: 3px black solid;
             display: flex;
             width: 230px;
-            height: max-content;
+            height: 400px;
             flex-direction: column;
             align-items: center;
             padding: 10px;
+            overflow: scroll;
+            overflow-x: hidden;
         }
         .profile_dashboard {
             display: flex;
             border: black 3px solid;
-            height: 415px;
+            height: 375px;
             width: 705px;
             margin-left: 258px;
             justify-content: space-around;
             flex-direction: row;
-            margin-top: -323px;
+            margin-top: -147px;
             padding: 15px;
         }
         .dash_colm {
             border: black solid 3px;
             background-color: lightgrey;
             padding: 5px;
-            width: 180px;
+            width: 202px;
+            overflow: scroll;
+            overflow-x: hidden;
         }
         .message_box {
             border: 5px solid black;
             width: 267px;
             margin-left: 981px;
-            height: 338px;
-            margin-top: -632px;
+            height: 500px;
+            margin-top: -578px;
             padding: 10px;
             display: flex;
             flex-direction: column;
@@ -61,25 +65,31 @@
             width: 140px;
             border-radius: 15%;
             height: 40px;
+            background-color: cyan;
         }
         p{
             height: max-content;
             width: 150px;
+            font-size: 20px;
+        }
+        .form-control {
+            overflow: scroll;
+            overflow-x: hidden;
         }
     </style>
 </head>
 <body>
     <div class="container">
         <div class="navbar">
-            <button><a href='/'>Home</a> </button>
             <button><a href='/profile'>Profile</a>  </button>
             <button><a href='/info'>Habits We Track</a>  </button>
             <button><a href='/logout'>Logout</a> </button>
         </div>
         <br>
-        
+        <br>
         <div class="user_info_box">
             <h3>Hello, {{user.first_name}} !</h3>
+            <br>
             <a href="/add_habit">Add Habit</a>
             <br>
             <h3> Goals </h3>
@@ -96,30 +106,34 @@
                 {% endfor %}
             </div>
             <div class="dash_colm">
-                <h3>Distance To Goal</h3>
-                <p></p>
+                <h3>Frequency</h3>
+                {% for habit in habits %}
+                <p>{{habit.frequency}}</p>
+                {% endfor %}
             </div>
         </div>
         <div class="message_box">
             <h3> Message Box </h3>
             <br>
-            <form action="/send/message" method="post">
-                {#{% for u in users %}#}
-                    {#{% if u.id != session.user_id %}#}
-                    <div class="form-control">
-                        <input type="hidden" name="sender_id" value={#{{session.user_id}}#}>
-                        <input type="hidden" name="receiver_id" value={#{{u.id}}#}>
-                        <label for="receiver_id"> Send Message:</label>
-                        <textarea name="content" id=""></textarea>
-                        <input type="submit" value="Send">
-                    </div>
-                    {#{% endif %}#}
-                {#{% endfor %}#}
-            </form>
-            <br>
+                <form action="/send/message" method="post">
+                    <input type="hidden" name="sender_id" value={{session.user_id}}>
+                    <select name="receiver_id">
+                    {% for u in users %}
+                        {% if u.id != session.user_id %}
+                            <option value={{u.id}}> Send to {{u.first_name}}: </option>
+                        {% endif %}
+                    {% endfor %}
+                    </select>
+                    <textarea name="content" id=""></textarea>
+                    <input type="submit" value="Send">
+                </form>
+                <br>
             <div class="form-control">
-                <label for="receiver_id"> View {{message|length}} Message(s): </label>
-                <input type="content" name="content" id="content">
+                <h3 class="card-title"> View {{messages|length}} Message(s): </h3>
+                {% for message in messages %}
+                <p><strong>{{message.sender}} says:</strong> {{message.content}}
+                <a href='/delete/messages/{{message.id}}'>Delete</a></p>
+                {% endfor %}
             </div>
         </div>
     </div>

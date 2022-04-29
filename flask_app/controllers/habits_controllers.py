@@ -16,9 +16,19 @@ def createHabit():
     Habit.create_habit(data)
     return redirect('/add_habit')
 
-@app.route('/update_habit', methods=['POST'])
-def update_habit():
-    Habit.edit_habit(request.form)
+@app.route('/update_habit/<int:id>', methods=['POST'])
+def update_habit(id):
+    data = {
+        "habit_name" : request.form['habit_name'],
+        "goal" : request.form['goal'],
+        "habit_type" : request.form['habit_type'],
+        "start_date" : request.form['start_date'],
+        "frequency" : request.form['frequency'], 
+        "id" : id
+    }
+    Habit.edit_habit(data)
+    print("**********", session['user_id'])
+    print(data)
     return redirect('/add_habit')
 
 @app.route('/edit_habit/<int:id>')
@@ -30,14 +40,14 @@ def edit(id):
     }
     user = User.get_user(data)
     habits = Habit.get_user_habits(data)
-    print("**********", habits)
+    # print("**********", habits)
     for x in habits:
-        print("**********habit.id", x.id)
-        print("**********id", id)
-        print("**********", x.habit_name)
+        # print("**********habit.id", x.id)
+        # print("**********id", id)
+        # print("**********", x.habit_name)
         if x.id == id:
             habit = x
-            print("**********habit", habit)
+            # print("**********habit", habit)
     return render_template('/edit_habit.html', user = user, habit = habit)
 
 @app.route('/info')

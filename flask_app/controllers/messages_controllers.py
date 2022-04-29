@@ -11,9 +11,19 @@ def message_box():
         "receiver_id": request.form['receiver_id'], 
         "content" : request.form['content']
     }
-    # print("**********message",data)
-    Message.save(data)
-    message = data['content']
-    print(message)
+    print("**********message",data)
+    Message.create_messages(data)
+    print(data['sender_id'])
+    print(data['receiver_id'])
     return redirect('/profile')
 
+@app.route('/delete/messages/<int:id>')
+def delete_messages(id):
+    if 'user_id' not in session:
+        return redirect('/')
+    data = {
+        "id" : id
+    }
+    print(data)
+    Message.delete_message(data)
+    return redirect ('/profile')

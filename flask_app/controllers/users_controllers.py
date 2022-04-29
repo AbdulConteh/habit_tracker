@@ -20,8 +20,10 @@ def profile():
     # print(data)
     user = User.get_user(data)
     habits = Habit.get_user_habits(data)
+    users = User.get_all()
+    messages = Message.get_user_message(data)
     # print("**********habit", habits)
-    return render_template('/profile.html', user = user, habits = habits)
+    return render_template('/profile.html', user = user, habits = habits, users=users, messages = messages)
 
 @app.route("/user_register", methods=['POST'])
 def create():
@@ -33,7 +35,7 @@ def create():
         "email" : request.form["email"],
         "password" : bcrypt.generate_password_hash(request.form['password'])
     }
-    print(data['password'])
+    # print(data['password'])
     id = User.create_user(data)
     session['user_id'] = id
     return redirect ('/')
@@ -52,6 +54,7 @@ def login():
         return redirect('/')
     session['user_id'] = user.id
     return redirect ('/profile')
+
 
 @app.route('/logout')
 def logout():

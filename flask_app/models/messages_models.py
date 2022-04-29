@@ -15,14 +15,16 @@ class Message:
         self.created_at = data['created_at']
         self.updated_at = data['updated_at']
 
-    def save(cls):
+    @classmethod
+    def create_messages(cls, data):
         query = """
-            INSERT INTO messages ( content, sender_id, receiver_id)
-            VALUES(%(content)s, %(sender_id)s, %(receiver_id)s);
+        INSERT INTO messages (content, sender_id, receiver_id)
+        VALUES (%(content)s, %(sender_id)s, %(receiver_id)s);
         """
-        results = connectToMySQL(db).query_db(query)
+        results = connectToMySQL(db).query_db(query, data)
         return results
 
+    @classmethod
     def get_user_message(cls, data):
         query = """ 
             SELECT users.first_name as sender, users2.first_name as receiver,
@@ -34,3 +36,9 @@ class Message:
         for message in results:
             messages.append(cls(message))
         return messages
+
+    @classmethod
+    def delete_message(cls, data):
+        query = " DELETE FROM messages WHERE id = %(id)s"
+        results = connectToMySQL(db).query_db(query, data)
+        return results
