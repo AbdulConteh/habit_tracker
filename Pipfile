@@ -8,6 +8,8 @@ flask = "*"
 flash = "*"
 pymysql = "*"
 flask-bcrypt = "*"
+python-dotenv = "*"
+requests = "*"
 
 [dev-packages]
 
