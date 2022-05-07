@@ -1,0 +1,4 @@
+azuure_stroage_connectionstring: "DefaultEndpointsProtocol=https;AccountName=habittrackerproject;AccountKey=4Iv/dJVyndAeIXxI8VnWGBtdmnEDGvZYJe4NskJTt6SnhyqYZXD6ltnoBo0nVcjWXmZ+8n+24eXk+AStzrw45g==;EndpointSuffix=core.windows.net"
+videos_container_name: "videos"
+pictures_container_name: "images"
+source_folder: "C:\Users\dimon\OneDrive\Pictures\Google Photos\Takeout\Google Photos\Photos from 2019"
