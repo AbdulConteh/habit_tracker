@@ -90,8 +90,30 @@
         <div class="user_info_box">
             <h3>Hello, {{user.first_name}} !</h3>
             <br>
-            <form action="upload_img" method="post">
-                <input type="file" name="file" id="">
+            <p>
+                {% with messages = get_flashed_messages() %}
+                    {% if messages %}
+                        <ul>
+                        {% for message in messages %}
+                            <li>{{ message }}</li>
+                        {% endfor %}
+                        </ul>
+                    {% endif %}
+                {% endwith %}
+            </p>
+            <h4> Select Profile Picture</h4>
+            {% if filename %}
+                <div>
+                    <img src ="{{ url_for('display_image',filename=filename) }}">
+                </div>
+            {% endif %}
+            <form action="/upload_img" method="post" enctype="multipart/form-data">
+                <p>
+                    <input type="file" name="file" class="form-control" autocomplete="off" required>
+                </p>
+                <p>
+                    <input type="submit" value="Add Profile Image">
+                </p>
             </form>
             <a href="/add_habit">Add Habit</a>
             <br>
