@@ -23,7 +23,7 @@
             background-color: oldlace;
             border: 3px black solid;
             display: flex;
-            width: 230px;
+            width: 240px;
             height: 400px;
             flex-direction: column;
             align-items: center;
@@ -33,7 +33,6 @@
         }
         .profile_dashboard {
             display: flex;
-            border: black 3px solid;
             height: 375px;
             width: 705px;
             margin-left: 258px;
@@ -75,6 +74,12 @@
         .form-control {
             overflow: scroll;
             overflow-x: hidden;
+        }
+        .container {
+            border: black solid 3px;
+            height: 827px;
+            background-color: darkgray;
+            width: 1295px;
         }
     </style>
 </head>
@@ -123,6 +128,7 @@
             {% endfor %}
         </div>
         <br>
+        <img src="{{ url_for('static', filename='/imgs/123.jpg') }}" style="height: 250px; width: 700px; margin-left: 266px; margin-top: -597px;">
         <div class="profile_dashboard">
             <div class="dash_colm">
                 <h3>Habit Types</h3>
