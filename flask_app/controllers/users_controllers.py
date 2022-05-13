@@ -1,10 +1,12 @@
 from flask_app import app
 from flask_bcrypt import Bcrypt 
+
 from flask_app.models.users_models import User
 from flask_app.models.habits_models import Habit
 from flask_app.models.messages_models import Message
 from flask import render_template, redirect, session , flash, request
 bcrypt = Bcrypt(app)
+
 
 @app.route('/')
 def index():
