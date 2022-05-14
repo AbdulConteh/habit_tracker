@@ -1,7 +1,11 @@
 from flask_app import app
 from flask_app.models.habits_models import Habit
 from flask_app.models.users_models import User
+import os
 from flask import render_template, request, redirect, session , flash
+# from projects.habit_tracker.server import FLASK_APP_API_KEY
+
+# print(os.environ.get(FLASK_APP_API_KEY) )
 
 @app.route('/create_habit', methods=['POST'])
 def createHabit():
