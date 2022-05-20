@@ -110,11 +110,16 @@
                 to thse questions aren't what you'd like. It can seem impossible 
                 when dealing with all that comes with "life". While creating your Mental 
                 habits keep in mind, the point is to change current habits that aren't serving
-                you to new habits that will. 
-                <br>
-                <button onclick="show()"> Book Info </button>
-                </p>
+                you to new habits that will. </p>
             </div>
+        </div>
+        <br>
+        <div class="searchapi">
+            <form action="/get_api" method="post">
+                <label for="find_book"> Find Book </label>
+                <input type="text" name="find_book" id="find_book">
+                <input type="submit" value="search" onclick="show()">
+            </form>
         </div>
         <br>
         <div class="api_data" id="api_data" onclick="minimize()">

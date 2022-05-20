@@ -2,6 +2,7 @@ from flask_app import app
 from flask_app.models.habits_models import Habit
 from flask_app.models.users_models import User
 import os
+import requests
 from flask import render_template, request, redirect, session , flash
 
 print( os.environ.get("FLASK_APP_API_KEY") )
@@ -52,6 +53,14 @@ def edit(id):
             habit = x
             # print("**********habit", habit)
     return render_template('/edit_habit.html', user = user, habit = habit)
+
+@app.route('/get_api', methods=['POST'])
+def apiInfo():
+    find_book = request.form['find_book']
+    url = 
+    response = requests.get(url)
+    print(response.json())
+    return redirect('/info')
 
 @app.route('/info')
 def info():
