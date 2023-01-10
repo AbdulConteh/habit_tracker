@@ -10,19 +10,19 @@
     <style>
         .container {
             background-color: silver;
-            color: whitesmoke;
-            height: 910px;
-            width: max-content;
-            border: grey solid 14px;
+            height: 900px;
+            width: 100%;
+            border: black solid;
         }
         .navbar {
             background-color: black;
             margin: 5px;
-            padding: 10px;
-            width: 1200px;
+            width: 102%;
+            margin-left: -13px;
             height: 75px;
             display: flex;
             justify-content: space-evenly;
+            margin-top: 0px;
         }
         .infotab {
             display: flex;
@@ -30,7 +30,6 @@
             align-items: center;
             height: 200px;
             justify-content: center;
-            background-color: darkgrey;
             width: 1200px;
         }
         .register {
@@ -46,14 +45,19 @@
             margin-left: 800px;
             margin-top: -431px;
         }
-        button {
-            width: 150px;
-            border-radius: 15%;
-            height: 40px;
-            background-color: cyan;
-        }
         p {
             width:600px;
+        }
+        button {
+            width: 200px;
+            border-radius: 15%;
+            height: 40px;
+            background-color: black;
+        }
+        a {
+            text-decoration: none;
+            font-size:x-large;
+            color:rgb(255, 255, 255);
         }
     </style>
 </head>
@@ -67,10 +71,10 @@
         <div class="infotab">
             <h3> Why Habit Tracker</h3>
             <p> 
-                Simply put, people need a way to track and organized. Looking to 
-                grow and better ourselves is already hard enough when you take into
-                account how distracting life can get. So, here you'll be able to create 
-                different habits for yourself while engaging with oter users on a personal 
+                Simply put, people need a way to stay organized. If you're looking to 
+                grow and better yourself it's important to stay consistent on your new habits
+                long enough for them to become apart of your routine. Here you'll be able to create 
+                different habits for yourself while engaging with other users that are on a personal 
                 imporvement journey themselves!
             </p>
         </div>
@@ -127,6 +131,7 @@
             <br>
             <input type="submit" value="Login">
         </form>
+        <br>
     </div>
 </body>
 </html>

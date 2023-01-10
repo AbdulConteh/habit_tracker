@@ -6,27 +6,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
-    <title>Add</title>
+    <title>Add Habit</title>
     <style>
+        .container {
+            border: black solid 3px;
+            height: 900px;
+            width: 100%;
+        }
         .navbar {
             background-color: black;
-            margin: 5px;
             padding: 10px;
-            width: 1200px;
+            width: 102%;
             height: 75px;
+            margin-left: -12px;
+        }
+        button {
+            width: 200px;
+            border-radius: 15%;
+            height: 40px;
+            background-color: black;
+        }
+        a {
+            text-decoration: none;
+            font-size:x-large;
+            color:rgb(255, 255, 255);
         }
         .habit_list {
-            margin-left: 750px;
+            margin-left: 57.3rem;
+            position: fixed;
             display: flex;
-            border: 3px solid black;
-            width: 417px;
+            border-left: 3px solid black;
+            width: 20%;
             align-items: flex-start;
             flex-direction: column;
             background-color: darkgray;
             font-size: 20px;
             padding: 15px;
-            height: max-content;
-            margin-top: -425px;
+            height: 819px;
+            margin-top: -33.1rem;
+            overflow-x: overlay;
         }
         .form-group {
             display: flex;
@@ -35,17 +53,14 @@
             width: 414px;
             align-items: flex-start;
         }
-        button {
-            width: 140px;
-            border-radius: 15%;
-            height: 40px;
-            background-color: cyan;
+        .header {
+            display: flex;
+            justify-content: center;
         }
-        .container {
-            border: black solid 3px;
-            height: 827px;
-            background-color: darkgray;
-            width: 1295px;
+        .add-habit {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
         }
     </style>
 </head>

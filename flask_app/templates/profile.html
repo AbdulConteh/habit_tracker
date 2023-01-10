@@ -8,77 +8,78 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
     <title>Profile</title>
     <style>
-        button {
-            background-color: cyan;
+        .container {
+            border: black solid 3px;
+            height: 900px;
+            width: 100%;
         }
         .navbar {
             background-color: black;
-            margin: 5px;
             padding: 10px;
-            width: 1258px;
+            width: 102%;
             height: 75px;
+            margin-left: -12px;
+        }
+        button {
+            width: 200px;
+            border-radius: 15%;
+            height: 40px;
+            background-color: black;
+        }
+        a {
+            text-decoration: none;
+            font-size:x-large;
+            color:rgb(255, 255, 255);
         }
         .user_info_box{
-            background-color: oldlace;
-            border: 3px black solid;
+            background-color: lightblue;
+            border-right: 5px black outset;
             display: flex;
-            width: 250px;
-            height: 400px;
+            width: 21%;
+            margin-left: -12px;
+            height: 819px;
+            margin-top: -48px;
             flex-direction: column;
             align-items: center;
             padding: 10px;
-            overflow: scroll;
-            overflow-x: hidden;
+            overflow: overlay;
         }
         .profile_dashboard {
             display: flex;
             height: 375px;
-            width: 705px;
-            margin-left: 258px;
-            justify-content: space-around;
+            width: 80%;
+            margin-left: 7rem;
+            justify-content: space-evenly;
             flex-direction: row;
-            margin-top: -147px;
-            padding: 15px;
+            margin-top: -35rem;
         }
         .dash_colm {
-            border: black solid 3px;
             background-color: lightgrey;
             padding: 5px;
             width: 202px;
-            overflow: scroll;
-            overflow-x: hidden;
+            display: flex;
+            overflow: hidden;
+            flex-direction: column;
+            align-items: center;
         }
         .message_box {
-            border: 5px solid black;
-            width: 267px;
-            margin-left: 981px;
+            border: 3px solid black;
+            width: 23%;
+            margin-left: 62rem;
             height: 500px;
-            margin-top: -578px;
+            margin-top: -38rem;
             padding: 10px;
             display: flex;
             flex-direction: column;
             align-items: center;
         }
-        button {
-            width: 140px;
-            border-radius: 15%;
-            height: 40px;
-            background-color: cyan;
-        }
         p{
             height: max-content;
-            width: 150px;
-            font-size: 20px;
+            font-size: 22px;
         }
         .form-control {
             overflow: scroll;
             overflow-x: hidden;
-        }
-        .container {
-            border: black solid 3px;
-            height: 827px;
-            background-color: darkgray;
-            width: 1295px;
         }
     </style>
 </head>
@@ -103,7 +104,7 @@
             {% endfor %}
         </div>
         <br>
-        <img src="{{ url_for('static', filename='/imgs/123.jpg') }}" style="height: 250px; width: 700px; margin-left: 266px; margin-top: -597px;">
+        <img src="{{ url_for('static', filename='/imgs/123.jpg') }}" style="height: 250px; width: 52%; margin-left: 18rem; margin-top: -88rem;">
         <div class="profile_dashboard">
             <div class="dash_colm">
                 <h3>Habit Types</h3>
@@ -142,7 +143,6 @@
                 {% endfor %}
             </div>
         </div>
-
     </div>
 </body>
 </html>
